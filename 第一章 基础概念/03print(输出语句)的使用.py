@@ -10,7 +10,6 @@ def print(
          file: Optional[_Writer] = ...,
              #改变存的位置
          flush: bool = ...
-             
     )
  -> None: ...
 '''
