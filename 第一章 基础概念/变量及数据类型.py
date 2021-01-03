@@ -1,3 +1,4 @@
+import os #暂停防止闪退
 ''' 
 变量
     数字类：有有符号整数（int)，浮点数（fload)，复数（complex)
@@ -126,3 +127,4 @@ print(type(jihe))
 <class 'set'>
 >>>
 '''
+os.system('pause') #暂停程序
