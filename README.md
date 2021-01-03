@@ -1,2 +1,2 @@
 # python-learning-experience
-学习python过程
+学习python
