@@ -1,3 +1,4 @@
+import os
 '''
 int 整数 默认十进制
 '''
@@ -16,3 +17,4 @@ print(d) #默认输出十进制
 print(bin(c)) #转二进制
 print(oct(a)) #转八进制
 print(hex(a)) #转十六进制
+os.system('pause')
