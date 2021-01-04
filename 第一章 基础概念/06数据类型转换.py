@@ -1,3 +1,4 @@
+import os
 #内置函数转换类型
 age = input('年龄：')
 new_age = int(age)
@@ -43,3 +44,4 @@ if 3:
 if 0:
     print('false')
 # 什么也没有
+os.system('pause')
