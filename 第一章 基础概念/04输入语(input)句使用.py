@@ -1,3 +1,4 @@
+import os
 # input 接收用户输入
 # input() ==> 括号里写提示信息
 # 输入的结果都被保存为字符串!!!
@@ -53,3 +54,4 @@ str.split(str="", num=string.count(str))
 
 str为分割符，包括空格、\n，\t 等 ，num是分割次数。
 '''
+os.system('pause')
