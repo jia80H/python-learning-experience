@@ -1,3 +1,4 @@
+import os
 #print输出语句
 print('hello world!')
 
@@ -42,3 +43,4 @@ print('hello','good','yes','hi',sep = '+',end = "&&*&*%^&$%^")
 '''
 hello+good+yes+hi       hello+good+yes+hi&&*&*%^&$%^
 '''
+os.system('pause')
