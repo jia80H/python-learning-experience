@@ -1,3 +1,4 @@
+import os
 '''
 标识符：变量，模块名，函数名，类名
 标识符的命名规则与规范：
@@ -20,3 +21,4 @@ continue def elif else except finally for
 from global if import in is lambda nonlocal
 not or pass raise return try while with yield
 '''
+os.system('pause')
