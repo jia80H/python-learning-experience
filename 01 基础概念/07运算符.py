@@ -135,6 +135,17 @@ print(red,green,blue)
 print(hex(red),hex(green),hex(blue))
 
 
+'''
+运算符的特特殊优先级
+'''
+#逻辑运算中not>and>or 而不是从左到右看
+print(True or False and True) #True
+print(False or not False )    #True
+print(True or True and False) #True 
+
+#强烈建议用括号来说明优先级
+print((True or True) and False) #False 
+print(True or (True and False)) #True 用括号提醒自己或他人
 
 
 
