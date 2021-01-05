@@ -123,9 +123,17 @@ print(~m )    #-13
  green = exR >> 8
  _0green0 = green << 8
  blue = exR ^ _0green0
- print(red)
- print(green)
- print(blue)
+print(red,green,blue)
+print(hex(red),hex(green),hex(blue))
+
+#or简单方法
+color = 0xF0384E
+red = color >> 16
+green = color >> 8 & 0xFF
+blue = color & 0xFF
+print(red,green,blue)
+print(hex(red),hex(green),hex(blue))
+
 
 
 
