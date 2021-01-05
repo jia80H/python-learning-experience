@@ -95,6 +95,40 @@ print(0 or [] or 'list' or 5 or 'ok') #list
 print(o or [] or ()) #()
 
 '''位运算符'''
+# 按位与& 按位或| 按位异或^ 按位左移<< 按位右移>> 按位取反~
+
+#按位与& 同为1则为1，否则为0
+a = 23       #0001 0111 23
+b = 15       #0000 1111 15
+print(a & b) #0000 0111 7
+#按位或| 只要有一个为1则为1
+print(a | b) #0001 1111 31
+#按位异或^ 相同为0，不同为1
+print(a ^ b) #0001 1000 24
+#按位左移<< 
+x = 5         #101 5
+print(x << 2) #最低位补两个0 10100  20
+#按位右移>>
+y = 15        #1111 15
+print(y >> 2) #去除最后两位 11 3
+#按位取反~ ~n = -( n + 1 )
+m = 12        # 12
+print(~m )    #-13
+ #练习 获取的16进制颜色0xF0384E的RGB值，并以十进制打印和输出
+ numColor = 0xF0384E
+ exB = numColor >> 8
+ red = exB >> 8
+ red00 = red << 16
+ exR = red00 ^ numColor
+ green = exR >> 8
+ _0green0 = green << 8
+ blue = exR ^ _0green0
+ print(red)
+ print(green)
+ print(blue)
+
+
+
 
 
 os.system('pause')
