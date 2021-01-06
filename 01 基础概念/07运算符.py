@@ -18,12 +18,23 @@ print(10//3) #3 取整
 print(10%3) #1 取余
 
 #字符串运算
-#有限度的支持加法和乘法
-#加法运算符：拼接两个字符串
+
+#+ 字符串连接
+#* 字符串重复
+#[] 通过索引获取字符串中字符
+#[:] 截取字符串中部分字符
+#in 如果字符串中包含给定字符，返回True
+#not in 如果字符串中不包含给定字符，返回True
+
 print('hello'+'world') #helloworld
 
-#乘法运算符：重复字符串
 print('hello' * 2) #hellohello
+
+s = python
+print('thon' in s) #True
+print('thon' not in s) #False
+print(s[0]) #返回s中索引（序号，从零开始）为0的字符 p
+print(s[1:4]) #返回s中索引（序号，从零开始）从1～3的字符 yth
 
 '''赋值运算符 = '''
 #‘=’将等号右边的值赋给左边
