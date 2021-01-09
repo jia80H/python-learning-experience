@@ -38,7 +38,7 @@ s = set()
 print(bool(s))  #False  空集合
 
 #隐式转换
-if 3:
+if 3: #if后面自动转换为bool
     print('good')
 #good
 if 0:
