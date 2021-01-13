@@ -1,5 +1,8 @@
-'''三元表达式'''
-num1=int(input('数字1'))
-num2=int(input('数字2'))
-x = num1 if num1>num2 else num2
-print(x)
+j = 0
+while j < 9:
+    j += 1
+    i = 0
+    while i < j:
+        i += 1
+        print(i,'*',j,'=',i*j,sep="", end="\t")
+    print()
