@@ -1,2 +1,1 @@
-m = 'abcdefghijklmnopqrstuvwxyz'
-print(m[-5:-1])
+print('*','monday'.ljust(10,^),'*',sep='') #*monday    *
