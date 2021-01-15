@@ -124,3 +124,29 @@ print(b'\xe4\xbd\xa0'.decode('utf8')) #你
 #乱码出现的原因
 y = '你好'.encode('utf8')
 print(y.decode('gbk')) #浣犲ソ
+
+'''成员运算符in'''
+
+word = 'hello'
+m = input('zifu')
+for c in word:
+    if m == c:
+        print('cunzai')
+        break
+else:
+    print('buucunzai')
+
+word = 'hello'
+m = input('zifu')
+if word.find(m) == -1:
+    print('bucunzai')
+else:
+    print('cunzai')
+
+word = 'hello'
+m = input('zifu')
+if m in word :
+    print('cunzai')
+    else:
+        print('bucunzai')
+    
