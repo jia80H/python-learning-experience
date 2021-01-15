@@ -71,3 +71,56 @@ print('abcedefXmpXqrst'.rpartition('X')) #('abcedefXmp', 'X', 'qrst')
 
 file_name = '2020.02.2beautiful.mp4'
 print(file_name.rpartition('.')) #('2020.02.2beautiful', '.', 'mp4')
+
+'''修改大小写'''
+
+#capitalize 让第一个单词首字母大写
+print('help world.good moring.\nyes'.capitalize()) 
+# Help world.good moring.
+# yes
+
+#uper 全大写
+print('help world.good moring.'.upper()) #HELP WORLD.GOOD MORING. 
+#lower 全小写
+print('HELP WORLD.GOOD MORING.'.lower()) #help world.good moring. 
+#title 每个单词首字母大写
+print('help world.good moring.'.title()) #Help World.Good Moring.
+
+'''空格处理'''
+#ljust(width,fillchar) 至少占n格,fillchar默认为空格
+print('*','monday'.ljust(10),'*',sep='') #*monday    *
+print('*','monday'.ljust(10,'^'),'*',sep='') #*monday^^^^*
+#rljust变为从左边补不足的
+
+#center 居中 左右补
+print('wednesday'.center(20,'~')) #~~~~~wednesday~~~~~~
+
+#lstrip(fillchar) 去除左边fillchar(默认空格)
+print('   apple   *'.lstrip()) #apple   *
+#rstrip() 去除右边空格
+#strip() 去除两边空格
+
+'''字符串拼接join'''
+#split可以把字符串转换为列表，join可以将列表转化为字符串
+fruit = ['apple','pear','peach','banana']
+print('-'.join(fruit)) #apple-pear-peach-banana
+
+print('*'.join('hello')) #h*e*l*l*o
+
+'''查看字符对应编码Unicode'''
+#ord查看字符对应编码
+print(ord('你')) #20320
+#chr查看编码对应字符
+print(chr(20320)) #你
+
+#GBK utf-8 Big5
+#使用encode转编码
+print('你'.encode('gbk')) #b'\xc4\xe3'
+print('你'.encode('utf8')) #b'\xe4\xbd\xa0'
+
+#使用decode转字符
+print(b'\xe4\xbd\xa0'.decode('utf8')) #你
+
+#乱码出现的原因
+y = '你好'.encode('utf8')
+print(y.decode('gbk')) #浣犲ソ
