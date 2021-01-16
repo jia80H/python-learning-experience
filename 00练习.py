@@ -1,4 +1,3 @@
-#sorted(nums) 内置函数sorted
-numbs = [6,5,3,1,8,7,2,4]
-a = sorted(numbs)
-print(a)
+
+points = [(x,y) for x in range (5,9) for y in range(10.20)]
+print(points)
