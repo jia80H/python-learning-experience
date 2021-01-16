@@ -69,3 +69,15 @@ print('daji' in masters) #True
 masters = ['wangzhaojun','daji','diaochan','daqiao','xiaoqiao','daji']
 masters[2] = '妲己'
 print(masters)
+
+'''遍历'''
+#便利：将所有数据都访问一边。遍历真的的是可迭代对象
+#遍历方式 while循环、for...in 循环
+masters = ['wangzhaojun','daji','diaochan','daqiao','xiaoqiao','daji']
+for k in masters:
+    print(k)
+
+i = 0
+while i < len(masters):
+    print(masters[i])
+    i += 1
