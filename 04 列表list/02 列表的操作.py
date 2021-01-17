@@ -24,6 +24,12 @@ x = ['makeboluo','milaidi','direnjie']
 heros.extend(x)
 print(heros,x,sep="\n")
 
+#加法合并
+heros = ['ake','yingzheng','hanxin','luna','houyi','yase','liyuanfang']
+x = ['makeboluo','milaidi','direnjie']
+z = heros + x
+print(z)
+
 '''删除元素'''
 #删除数据的方法 pop remove clear
 
