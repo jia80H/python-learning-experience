@@ -50,5 +50,87 @@ print(x) #只返回value
 print(person)
 
 result = person.popitem()
-print(result)
+print(result) # ('gender', 'female')
+print(person) # {'age': '18', 'score': '98', 'weight': '150', 'hobbies': ['唱', '跳', 'rap']}
+
+# 也能这样删除
+del person['weight']
 print(person)
+
+#清空
+person.clear()
+
+""" update方法的使用 """
+
+#列表可以使用extend方法将两个列表合并为一个列表
+#字典中可以使用update方法合并
+person1 = {'name':'zhangsan','age':'18'}
+person2 = {'addr':'henan','height':'180'}
+person1.update(person2)
+print(person1)
+
+""" 字典的遍历 """
+# 列表和元组是一个单一的数据，但是字典是键值对
+
+#第一种遍历方法：直接for……in循环字典
+person = {'name':'zhangsan','age':'18'}
+for x in person:
+    print(x) #获取的是key
+    print(x,'=',person[x]) # 获取key和value
+
+# 第二种遍历方法：
+# 获取到所以的key，然后再遍历key，根据key获取value
+person = {'name':'zhangsan','age':'18'}
+print(person.keys()) #dict_keys(['name', 'age'])
+for k in person.keys():
+    print(x,'=',person[x]) # 获取key和value
+
+#第三种方式：
+# 获取到所以的value
+# 只能拿到值，不能拿到value
+person = {'name':'zhangsan','age':'18'}
+for v in person.values():
+    print(v)
+
+# 第四种遍历方式
+person = {'name':'zhangsan','age':'18'}
+print(person.items()) 
+#dict_items([('name', 'zhangsan'), ('age', '18')])
+for item in person.items():
+    print(item)
+    # ('name', 'zhangsan')
+    # ('age', '18')
+    print(item[0],'=',item[1])
+
+# 拆包
+for k,v in person.items():
+    print(k,'=',v)
+
+""" 练习 """
+chars = ['w','b','c','a','s','a','w','d','w','a','x','v','x']
+# 拿出各自次数
+char_count = {}
+
+for char in chars:
+    if char in char_count:
+        char_count[char] += 1
+    else:
+        char_count[char] = 1
+print(char_count)
+
+# 更优
+chars = ['a','b','c','a','s','a','w','d','w','a','x','v','x']
+char_count = {}
+for char in chars:
+    if char not in char_count:
+        char_count[char] = chars.count(char)
+print(char_count)
+
+# 找到最多的
+vs = char_count.value()
+# 可以使用内置函数max取最大数
+max_count = max(vs)
+
+for k,v in char_count.items():
+    if v == max_count:
+        print(k)
