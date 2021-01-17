@@ -2,7 +2,7 @@
 # 使用一队小括号() 来保存一个元组
 # 元组和列表的区别在于列表是可变数据类型，而元组是不可变数据类型
 words = ['hello','goog','hi','nihao']
-nums = [1,9,3,2,5,8,9]
+nums = (1,9,3,2,5,8,9)
 
 # 和列表一样，元组也是一个有序的存储数据的容器
 # 元组也可以通过下标来获取数据
@@ -20,3 +20,16 @@ age2 = (18,)
 print(type(age),type(age2))
 
 #列表元组相互转换
+words = ['hello','goog','hi','nihao']
+print(tuple(words)) #转元组
+
+nums = (1,9,3,2,5,8,9)
+print(list(nums)) #转列表
+
+heights = ("189","174","144")
+print('*'.join(heights))
+
+#元组的遍历
+nums = (1,9,3,2,5,8,9)
+for i in nums:
+    print(i)
