@@ -106,7 +106,7 @@ for item in person.items():
 for k,v in person.items():
     print(k,'=',v)
 
-""" 练习 """
+""" 练习1 """
 chars = ['w','b','c','a','s','a','w','d','w','a','x','v','x']
 # 拿出各自次数
 char_count = {}
@@ -119,7 +119,7 @@ for char in chars:
 print(char_count)
 
 # 更优
-chars = ['a','b','c','a','s','a','w','d','w','a','x','v','x']
+chars = ['w','b','c','a','s','a','w','d','w','a','x','v','x']
 char_count = {}
 for char in chars:
     if char not in char_count:
@@ -127,10 +127,129 @@ for char in chars:
 print(char_count)
 
 # 找到最多的
-vs = char_count.value()
+vs = char_count.values()
 # 可以使用内置函数max取最大数
 max_count = max(vs)
 
 for k,v in char_count.items():
     if v == max_count:
         print(k)
+
+""" 练习2 """
+persons =[
+    {'name':'zhhangsan','age':18},
+    {'name':'lisi','age':20},
+    {'name':'wangwu','age':19},
+    {'name':'jerry','age':21},
+]
+#让用户输入姓名，如果姓名存在，提醒用户；
+# 如果姓名不存在，继续输入年龄，存入列表
+x = input('输入名字')
+if x in person: #错误
+    #in运算符，如果用在字典上，是用来判断key是否存在
+    print('姓名存在')
+
+#正确
+persons =[
+    {'name':'zhhangsan','age':18},
+    {'name':'lisi','age':20},
+    {'name':'wangwu','age':19},
+    {'name':'jerry','age':21},
+]
+x = input('输入名字')
+for person in persons:
+    if person['name'] == x:
+        print('用户存在')
+        break
+else:
+    print('用户不存在')
+    newbie = {'name':'x'}
+    y = int(input('输入年龄'))
+    newbie['age'] = y
+    persons.append(newbie)
+    print('用户已添加成功')
+print(persons)
+
+""" 练习3 """
+dict1 = {'a':100,'b':200,'c':300}
+#将key和value换位
+
+#方法1
+dict1 = {'a':100,'b':200,'c':300}
+dict2 = {}
+for k,v in dict1.items() :
+    dict2[v] = k 
+print(dict2)
+
+#方法2
+#字典推导式
+dict1 = {'a':100,'b':200,'c':300}
+dict1 = {v: k for k,v in dict1.items()}
+print(dict1)
+
+""" 练习4 """
+students=[
+    {'name':'张三','age':18,'score':98,'tel':'17335463210','gender':'female'},
+    {'name':'李四','age':28,'score':95,'tel':'12734632108','gender':'male'},
+    {'name':'王五','age':21,'score':98,'tel':'16835463210','gender':'unknown'},
+    {'name':'chris','age':17,'score':58,'tel':'17835486108','gender':'male'},
+    {'name':'jack','age':23,'score':52,'tel':'1883546808','gender':'female'},
+    {'name':'tony','age':15,'score':89,'tel':'17835463210','gender':'unknown'}
+]
+# (1) 统计不及格学生个数
+count = 0
+for student in students:
+    if student['score'] < 60:
+        count += 1
+print('不及格人数为%d'%count)
+# (2) 打印不及格学生名字和对应成绩
+for student in students:
+    if student['score'] < 60:
+        print('%s不及格，分数是%d'%(student['name'],student['score']))
+# (3) 统计未成年学生个数
+teen = 0
+for student in students:
+    if student['age'] < 18:
+        teen += 1
+print('未成年学生有%d人'%teen)
+# (4) 打印手机尾号是8的学生的名字
+for student in students:
+    if student['tel'].endswith('8'): #或者这样  if student['tel'][-1] == '8':
+        print('%s的手机尾号是8'%student['name'])
+# (5) 打印最高分和对应学生的名字
+max_score = 0
+for student in students:
+    if student['score'] > max_score:
+        max_score = student['score']
+for student in students:
+    if student['score'] == max_score:
+        print('%s分数最高，最高分为%d'%(student['name'],max_score))
+# (6) 删除性别不明的所有学生
+
+# 方法1 将保留的数据添加到空表中
+new_students = [student for student in students if student['gender'] != 'unknown']
+print(new_students)
+# 方法2 使用for循环倒着删除数据
+i = 0 
+for i in range(len(students)-1,-1,-1):
+    if students[i]['gender'] == 'unknown':
+        students.remove(students[i])
+print(students)
+# 方法3 使用while循环删除数据，并及时补齐因删除数据而导致列表索引的变化
+i = 0
+while i < len(students):
+    if students[i]['gender'] == 'unknown':
+        students.remove(students[i])
+        i -= 1
+    i += 1
+print(students)
+# 方法4 遍历在新的列表中操作，删除在原来列表中操作
+i = 0 
+for student in students[:]:
+    if student['gender'] == 'unknown':
+        students.remove(student)
+print(students)
+# 方法5 使用内置函数filter()和匿名函数
+new_students = filter(lambda x: x['gender'] != 'unknow',students)
+
+# (7) 将列表中学生成绩按降序排列
