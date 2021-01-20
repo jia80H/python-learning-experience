@@ -11,10 +11,10 @@ person = {
     }
 
 '''字典使用的注意事项'''
-# 1、字典里的key不允许重复。
+# 1 字典里的key不允许重复。
     # 如果重复，后一个key会覆盖前一个
-# 2、字典里的value可以是任意数据类型，但是key只能是不可变数据类型，一般用字符串
-    #不可变数据类型有字符串、元组、数字
+# 2 字典里的value可以是任意数据类型，但是key只能是不可变数据类型，一般用字符串
+    #不可变数据类型有字符串 元组 数字
 
 """ 查找数据 """
 #字典里的数据在保存时是无序的，不能用下标来获取
@@ -253,3 +253,48 @@ print(students)
 new_students = filter(lambda x: x['gender'] != 'unknow',students)
 
 # (7) 将列表中学生成绩按降序排列
+for j in range(0,len(students)-1):
+    for i in range(0,len(students)-1):
+        if students[i]['score'] < students[i + 1]['score']:
+            students[i],students[i + 1] = students[i + 1],students[i]
+print(students)
+
+""" 练习4 """
+#选课的情况如下
+sing = ('a','b','c','d','e','f','g')
+dance = ('g','f','s','d','a','r','c')
+rap = ('g','e','y','i','t','h','r','a')
+# (1) 求选课的总人数
+allPerson = sing + dance + rap
+print(len(set(allPerson))) # set 可以去除重复 
+# (2) 求只选第一门课的人数和姓名
+sing_only = []
+for p in sing:
+    if p not in dance and p not in rap:
+        sing_only.append(p)
+print(sing_only)
+
+p_dict = {}
+allPerson = sing + dance + rap
+for name in allPerson:
+    if name not in p_dict:
+        p_dict[name] = allPerson.count(name)
+print(p_dict)
+# (3) 求只选一门的学生姓名和数目
+print('报了1门的有',end='')
+for k,v in p_dict.items():
+    if v==1:
+        print(k,end=' ')
+print()
+# (4) 求选两门的学生姓名和数目
+print('报了2门的有',end='')
+for k,v in p_dict.items():
+    if v==2:
+        print(k,end=' ')
+print()
+# (5) 求选了三门的学生姓名和数目
+print('报了3门的有',end='')
+for k,v in p_dict.items():
+    if v==3:
+        print(k,end=' ')
+print()
