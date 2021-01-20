@@ -24,4 +24,24 @@ print(7 in {7,8,9})
 
 #in 用于字典是用来判断key是否存在
 person = {'name':'zhangsan','age':'18'}
-print()
+print('name' in person)
+
+""" 遍历 """
+
+# for……in……可以遍历字符串、列表、元组、字典、集合等可迭代对象
+#字符串遍历
+chars = 'hello word'
+for char in chars:
+    print(char,end='    ')
+#列表的遍历
+list1 = [1,2,3,4,5]
+for num in list1:
+    print(num,end=' ')
+
+#带下标的遍历
+#enumerate一般用于列表、元组等有序数据
+list1 = [1,2,3,4,5]
+for e in enumerate(list1):
+    print(e)
+for i,e in enumerate(list1): #拆包
+    print(i,e)
