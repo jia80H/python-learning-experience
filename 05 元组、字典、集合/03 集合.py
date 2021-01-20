@@ -32,12 +32,18 @@ names.remove('a') # 如果删除的不存在会报错
 names.clear()
 
 """ set的高级使用 """
-sing = {'a','b','c','d','e','f','g'}
-dance = {'g','f','s','d','a','r','c'}
+x = {'a','b','c','d','e','f','g'}
+y = {'g','f','s','d','a','r','c'}
 
 # 不支持加法
 # 减法
-print(sing - dance) 
+print(x - y) #sing减去共有的
 
 #求交集 &
-print(sing & dance)
+print(x & y)
+
+#求并集 |
+print(x | y)
+
+#求并集减去交集
+print(x ^ y) 
