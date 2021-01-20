@@ -54,6 +54,19 @@ print(x) # None
 age = input('age')
 print(age)
 help(print)
+
+# 多个返回值
+def shang_yu(m,n):
+    x = m // n
+    y = m % n
+    return x,y # 返回的本质是一个元组
+    #也可以这样写 x,y ==> [x,y] or (x,y) or {'x':x,'y':y}
+    # 需要用相应的方法取出值
+
+result = shang_yu(13,4)
+print('商是{},余数是{}'.format(result[0],result[1]))
+
+
 """ 函数的注释 """
 def add(a,b):
     """
@@ -75,3 +88,56 @@ def add2(a:int,b:int):
     c = a + b 
     return c 
 y = add2('hello','world') #会提示但是无法阻止
+
+""" 函数中调用函数 """
+# 求[n,m)之间所有阶乘的和
+
+# 阶乘
+def factorial(n):
+    y = 1
+    for x in range(1,n+1):
+        y = y*x
+    return y
+
+#阶乘的和
+def fac_sum(n,m):
+    a = 0
+    for t in range(n,m):
+        a = a + factorial(t)
+    return a
+
+fac_sum(3,5)
+
+""" 全局变量和局部变量 """
+a = 100 # 这个变量是全局变量，在整个py文件中都可以访问
+word = 'hello'
+
+def test():
+    x = 'hello' 
+    # 这个变量在函数内部定义的变量，是局部变量，
+    # 只能在函数内部使用
+    print('x = {}'.format(x))
+
+    #     print('函数内部修改前a = {}'.format(a)) 
+
+    # 如果局部变量的名字和全局变量同名，
+    # 会在函数内部重新定义一个新的局部变量
+    # 而不是修改全局变量
+    a = 10
+    print('函数内部修改后a = {}'.format(a))
+    #上述修改不能共存
+    
+    # 在函数内部修改全局变量
+    global word
+    word = 'ok'
+
+    # 内置函数 globals()可以查看全局变量 
+    # locals()可以查看局部变量
+    print('locals = {},globals = {}'.format(locals(),globals()))
+
+test()
+# print(x) # x 只能在函数内部使用，否则会报错
+print('函数外部a = {}'.format(a))
+print('函数外部word = {}'.format(word))
+
+# 在python里，只有函数能够分割作用域
