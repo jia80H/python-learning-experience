@@ -1,9 +1,7 @@
-sing = ('a','b','c','d','e','f','g')
-dance = ('g','f','s','d','a','r','c')
-rap = ('g','e','y','i','t','h','r','a')
-p_dict = {}
-allPerson = sing + dance + rap
-for name in allPerson:
-    if name not in p_dict:
-        p_dict[name] = allPerson.count(name)
-print(p_dict)
+names = {'a','b','c','d','e','f','a'}
+print(names) # {'b', 'a', 'e', 'c', 'd', 'f'}
+
+# 增加元素
+names.add('阿珂')
+names.update(['abfdb']) # 括号内为可迭代对象
+print(names)
