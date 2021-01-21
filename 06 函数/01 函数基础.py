@@ -6,6 +6,13 @@
 # def 函数名(参数):
 #   函数要执行的操作
 
+# 函数的三要素：函数名。参数和返回值
+#在一些编程语言里，允许函数重名
+# 在python里不允许函数重名
+# 如果重名，后一个会覆盖前一个
+# 在pythong里 函数名也可以理解为一个变量名
+# 变量与函数重名可能会出现问题 (调用函数时报错)
+
 def tell_story():
     print('从前有座山，','山里有座庙，','庙里有个老和尚',sep='\n')
     print('老和尚在给小和尚讲故事，','故事的内容是：',sep='\n')
@@ -35,6 +42,93 @@ tell_story('尼姑庵','师太','小尼姑')
 #按变量传递参数
 #可以不按顺序
 tell_story(person2='小和尚',person1='小和尚',place='庙')
+
+""" 默认参数的使用（缺省参数） """
+# 如果传递参数就使用传递的参数；如果没有传递参数，就使用默认的值
+# 如print函数里end就是一个缺省参数
+
+# 默认值直接在形参中声明
+
+def say_hello(name = 'mlfy',age = 18,city = 'beijing'):
+    print('大家好，我是{}，我今年{}岁了，我来自{}'.format(name,age,city))
+
+say_hello()
+say_hello('zhangsan',22,'NY')
+
+# 如果有位置参数和关键字参数，关键字参数一定要放在位置参数的后边
+say_hello('jerry',age='24',city='zhengzhou')
+
+""" 可变参数的使用 """
+#多个参数
+# 应用列表、元组等可迭代对象
+def add_mamy(iter):
+    x = 0
+    for n in iter:
+        x += n
+    return x
+
+nums = [1,2,3,4,5,6]
+print(add_mamy(nums))
+
+#可变参数
+
+def add(a,b,*args,mul = 1,**kwargs): 
+    # #args 表示可变参数
+    # 缺省参数必须在可变参数后边
+    # **kwargs 表示可变的关键字参数
+
+    print('a = {},b = {}'.format(a,b)) 
+    print('args = {}'.format(args)) 
+    # 多出来的可变参数会以元组的形式保存到args里
+
+    print('kwargs = {}'.format(kwargs)) 
+    # 多出来的kwargs 以字典的形式保存
+
+    c = a + b
+    for arg in args:
+        c += arg
+    return c *mul
+
+print(add(1,2,4,6,4,5,mul = 2,x = 1,y= 4,z= 9))
+
+""" 可变与不可变类型的传参 """
+
+#不可变
+def test(a):
+    print('修改前a的内存地址0x%X'%id(a)) 
+    # 修改前a的内存地址0x157C08D6930
+    a = 100
+    print('修改后a的内存地址0x%X'%id(a)) 
+    # 修改后a的内存地址0x157C09055D0
+    # a修改前后地址改变
+
+x = 1
+print('调用前x的内存地址0x%X'%id(x)) 
+# 调用前x的内存地址0x157C08D6930
+test(x)
+print('调用后x的内存地址0x%X'%id(x)) 
+# 调用后x的内存地址0x157C08D6930
+print(x) # 1
+# x 调用前后内存地址不变
+
+
+# 可变
+def demo(nums):
+    print('修改前nums的内存地址0x%X'%id(nums)) 
+    # 修改前nums的内存地址0x16FD50A01C0
+    nums[0] = 1000
+    print('修改后nums的内存地址0x%X'%id(nums)) 
+    # 修改后nums的内存地址0x16FD50A01C0
+
+y = [1,2,3,4,5]
+print('调用前y的内存地址0x%X'%id(y)) 
+# 调用前y的内存地址0x16FD50A01C0
+demo(y)
+print('调用后y的内存地址0x%X'%id(y)) 
+# 调用后y的内存地址0x16FD50A01C0
+print(y) # [1000, 2, 3, 4, 5]
+
+
 
 """ 函数的返回值 """
 # 返回值是函数执行的结果，并不是所有函数都必须有返回值
@@ -141,3 +235,46 @@ print('函数外部a = {}'.format(a))
 print('函数外部word = {}'.format(word))
 
 # 在python里，只有函数能够分割作用域
+
+""" 递归的基本使用 """
+# 递归简单来说，就是函数内部自己调用自己
+# 递归最重要的时找到出口(停止的条件)
+
+count = 0
+
+def tell_story():
+    global count
+    count += 1
+    print('从前有座山，','山里有座庙，','庙里有个老和尚',sep='\n')
+    print('老和尚在给小和尚讲故事，','故事的内容是：',sep='\n')
+
+    if count < 5:
+        tell_story()
+
+tell_story()
+
+def get_sum(n):
+    if n == 0 :
+        return 0
+    return n + get_sum(n - 1)
+
+print(get_sum(6)) # 21
+
+
+# 练习1：求n！
+
+def jiecheng(n):
+    if n == 0:
+        return 1
+    return n * jiecheng(n - 1)
+
+print(jiecheng(3))
+
+# 练习2：求斐波那契数列第n个数
+
+def febo(n):
+    if n == 1 or n ==2:
+        return 1
+    return febo(n -1 ) + febo(n-2)
+
+print(febo(3))
