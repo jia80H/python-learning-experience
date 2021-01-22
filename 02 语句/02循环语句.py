@@ -142,4 +142,10 @@ for i in range(101,201):
     else:
         print(i,'是质数')
 
+# for 循环也有一个大多数人都不熟悉 else 子句，
+# 该 else 子句在循环正常完成时执行，
+# 这意味着循环没有遇到任何 break 语句。
+# 如果有break，就会结束执行else
+
+
 
