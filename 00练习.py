@@ -1,10 +1,20 @@
-# 多个返回值
-def shang_yu(m,n):
-    x = m // n
-    y = m % n
-    return x,y # 返回的本质是一个元组
-    #也可以这样写 x,y ==> [x,y] or (x,y) or {'x':x,'y':y}
-    # 需要用相应的方法取出值
+""" 装饰器版 """
+def cal_time(fn):
+    def inner():
+        import time
+        start = time.time() 
+        fn()
+        end = time.time() 
+        print('耗时',(end - start),'s')
 
-result = shang_yu(13,4)
-print('商是{},余数是{}'.format(result[0],result[1]))
+    return inner
+
+
+@cal_time
+def cal():
+    x = 0
+    for i in range(1,10000000):
+        x += i
+    print(x)
+
+cal()
