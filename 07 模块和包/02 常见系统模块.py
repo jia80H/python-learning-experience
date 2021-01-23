@@ -168,4 +168,17 @@ print(h4.hexdigest())
 # result = h.hexdigest()
 # print(h)
 
-"""  """
+""" uuid模块 """
+# uuid用来生成一个全局唯一的模块
+
+import uuid
+# uuid1
+print(uuid.uuid1())  # 随机生成唯一32位16进制数
+
+# uuid2 不可用
+# uuid3 和uuid 5 是使用传入的字符串根据固定的算法算出来的，固定
+print(uuid.uu3(uuid.NAMESPACE_DNS,'mlfy'))
+print(uuid.uu5(uuid.NAMESPACE_DNS,'mlfy'))
+
+# uuid 4  随机
+print(uuid.uuid4()) # 使用最多
