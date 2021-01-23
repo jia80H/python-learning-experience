@@ -1,20 +1,7 @@
-""" 装饰器版 """
-def cal_time(fn):
-    def inner():
-        import time
-        start = time.time() 
-        fn()
-        end = time.time() 
-        print('耗时',(end - start),'s')
-
-    return inner
-
-
-@cal_time
-def cal():
-    x = 0
-    for i in range(1,10000000):
-        x += i
-    print(x)
-
-cal()
+""" hashlib 和 hmac """
+import hmac
+import hashlib
+# hmac 加密
+h = hmac.new(b'12345678',b'abc')
+result = h.hexdigest()
+print(h)
