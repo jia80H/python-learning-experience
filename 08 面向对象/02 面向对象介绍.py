@@ -7,7 +7,7 @@
 
 class Student(object): # 关注这个类有哪些特征和行为
     # 在__init__方法里以参数的形式定义特征，我们称之为属性
-    def __init__(name,age,height): 
+    def __init__(self,name,age,height): 
         self.name = name
         self.age = age
         self.height = height
@@ -53,3 +53,27 @@ s1.say_hello() # 大家好，我是 张三
 s2 = Student('jack',18)
 s2.say_hello() # 大家好，我是 jack
 
+# 没有属性，会报错
+# print(s.height)
+
+# 直接使用等号给一个属性赋值
+# 如果这个属性以前不存在，会给对象添加一个新的属性
+# 如果这个属性以前存在，会修改这个属性对应的值
+# 动态属性
+s1.city = 'beijaing' # 给对象添加一个city属性
+print(s1.city)
+
+""" __slots__属性的使用 """
+
+class Student(object):
+    __slots__ = ('name','age') 
+    # 这个属性直接定义在类里，是一个元组，
+    # 用来规定队形可以存在的属性
+    # 上边的动态属性city不写进了无法使用
+
+    def __init__(self,x,y):
+        self.name = x
+        self.age = y
+
+    def say_hello(self):
+        print('大家好，我是',self.name)
