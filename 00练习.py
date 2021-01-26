@@ -1,16 +1,20 @@
+class Singleton(object):
+    __instance = None 
+    __is_first = True
 
-""" 运算符相关的魔法方法 """
-class Person(object):
-    def __init__(self,name, age):
-        self.name = name
-        self.age = age
+    @classmethod
+    def __new__(cls, *rgs, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls)
+        return cls.__instance
 
-p1 = Person('zhangsan',18)
-p2 = Person('zhangsan',18)
-# p1 p2 不是同一个对象
-# 比较内存地址判断是否是同一个对象
+    def __init__(self,a,b):
+        if self.__is_first:
+            self.a = a
+            self.b = b
+            self.__is_first = False
 
-# is 身份运算符 
-# 可以判断两个对象是否是同一个对象
-print(p1 is p2) # False
+s1 = Singleton('aaaa', 'bbbbb')
+s2 = Singleton('hhhh', 'lllll') 
 
+print(s2.a) # aaaa
