@@ -74,13 +74,13 @@ class Person(object):
         self.dog = None
 
     def work_with_dog(self):
-        if isinstance(self.dog,Dog):
+        if self.dog is not None and isinstance(self.dog,Dog):
             self.dog.work()
 
 p = Person('张三')
 
 pd = pDog()
-# p.dog = pd
+p.dog = pd
 p.work_with_dog()
 
 bd = Bdog()
