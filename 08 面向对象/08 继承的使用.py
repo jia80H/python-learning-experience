@@ -56,3 +56,32 @@ c.demo_b()
 
 # __mro__类属性可以查看方法的调用顺序
 print(C.__mro__)
+
+""" 私有属性的继承特点 """
+class Animal(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.__mao = '10mm'
+    
+    def eat(self):
+        print(self.name+'正在吃')
+    
+    def __test(self):
+        print('我是Animal里的test方法')
+
+class Person(Animal):
+    def __demo(self):
+        print('我是Person里的私有方法')
+
+p = Person('张三', 18)
+p.eat()
+# p.__test() # 私有方法不能被继承
+
+p._Person__demo() # 自己类里定义的私有方法 对象名._类名__私有方法名()
+# p._Person__test() # 父类的私有方法子类没有继承
+p._Animal__test() # 可以通过 对象名._父类名__私有方法名() 来访问
+
+# 私有属性和方法子类不会继承
+# print(p._Person__mao) 
+print(p._Animal__mao) 
