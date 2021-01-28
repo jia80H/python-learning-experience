@@ -27,18 +27,18 @@ print(os.path.splitext(file_name)) # ('2021.1.23.demo', '.py')
 
 # os里的其他方法
 
-os.getcwd() # 获取当前的工作目录，即当前python脚本工作的目录 
-# os.chdir('test') #改变当前脚本工作目录，相当于shell下的cd命令 
-os.rename('毕业论文.txt', '毕业论文-最终版.txt') #文件重命名 
-os.remove('毕业论文.txt') #删除文件
-os.rmdir('demo') # 删除空文件夹
-os.removedirs('demo') #删除空文件夹
-os.mkdir('demo') # 创建-一个文件夹
-os.chdir('C:\\') #切换工作目录
-os.listdir('C:\\') #列出指定目录里的所有文件和文件夹
-os.name # nt- >widonws posix->Linux/Unix或 者MacoS
-os.environ #获取到环境配置
-os.environ.get('PATH') #获取指定的环境配置
+os.getcwd()  # 获取当前的工作目录，即当前python脚本工作的目录 
+# os.chdir('test') # 改变当前脚本工作目录，相当于shell下的cd命令 
+os.rename('毕业论文.txt', '毕业论文-最终版.txt')  # 文件重命名 
+os.remove('毕业论文.txt')  #删除文件
+os.rmdir('demo')  # 删除空文件夹
+os.removedirs('demo')  # 删除空文件夹
+os.mkdir('demo')  # 创建-一个文件夹
+os.chdir('C:\\')  # 切换工作目录
+os.listdir('C:\\')  # 列出指定目录里的所有文件和文件夹
+os.name  # nt- >widonws posix->Linux/Unix或 者MacoS
+os.environ  # 获取到环境配置
+os.environ.get('PATH')  # 获取指定的环境配置
 
 """ sys模块 """
 # 系统相关的方法
@@ -47,25 +47,38 @@ import sys
 # sys.exit() # 退出程序，（并给出退出码）
 # 和内置函数exit功能一直
 
-print(sys.path) # 结果是一个列表，表示查找模块的路径
-# ['e:\\git仓库\\python-learning-experience', 
+print(sys.path)  # 结果是一个列表，表示查找模块的路径
+# ['e:\\git仓库\\python-learning-experience',
 # 'E:\\python\\python39.zip', 'E:\\python\\DLLs', 
 # 'E:\\python\\lib', 'E:\\python', 
 # 'C:\\Users\\HP\\AppData\\Roaming\\Python\\Python39\\site-packages', 
 # 'E:\\python\\lib\\site-packages']
 
 # sys.stdin # 可以像unput一样，接收用户的输入。
-# sys.stdout # 修改这个可以改变默认输出位置 默认在控制台
-# sys.stdrr # 修改这个 可以改变错误输出的默认位置 默认在控制台
+# input 就是读取sys.stdin 里的数据
+s_in = sys.stdin
+while Ture:
+    content = s_in.readline().rstrip('\n')
+    if content == '':
+        break
+    print(content)
 
+# sys.stdout # 修改这个可以改变默认输出位置 默认在控制台
+sys.stdout = open('00练习.py', 'w', encoding='utf8')
+print('hello')
+print('good')
+
+# sys.stdrr # 修改这个 可以改变错误输出的默认位置 默认在控制台
+sys.stdrr = open('00练习.py', 'w', encoding='utf8')
+print(1 / 0)
 """ math模块 """
 # 数学相关的模块
 import math
-print(math.factorial(6)) # 720 求阶乘
-print(math.pow(2,10)) # 1024 幂运算
+print(math.factorial(6))  # 720 求阶乘
+print(math.pow(2,10))  # 1024 幂运算
 
-print(math.floor(12.98)) # 12 向下取整
-print(math.ceil(15.00001)) # 16 向上取整
+print(math.floor(12.98))  # 12 向下取整
+print(math.ceil(15.00001))  # 16 向上取整
 
 # round() 内置函数，实现四舍五入
 print(math.sin(math.pi / 6))
