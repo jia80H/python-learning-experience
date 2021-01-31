@@ -62,3 +62,31 @@ else:
         print('欢迎')
     else:
         print('未满18')
+
+""" finally关键字的使用 """
+# try ....:
+    # somerthing
+# finnally:
+    # another things
+# finally最终一定会执行的代码
+
+try:
+    print(1/0)
+finally:
+    print('nihao')
+
+def demo(a, b):
+    try:
+        x = a / b
+    except ZeroDivisionError:
+        return '除数不能为零
+    else:
+        return x
+    finally:
+        return 'good'
+
+print(demo(1,0))  # good
+print(demo(1,2))  # good
+# 如果函数里有finally,
+# finally里的返回值会覆盖前面的返回值
+

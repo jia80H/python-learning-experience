@@ -80,14 +80,15 @@ def can_play(fn):
         print(args)
         if args[0] >= 18:
             fn(x,y)
-        else: 
+        else:
            print('未成年')
-
 
     return inner
 
+
 @can_play
 def play_game(name,game):
-    print('{}正在玩儿{}'.format(name,game))
+    print('{}正在玩儿{}'.format(name, game))
+
 
 play_game('Mlfoy','TFT',22)
