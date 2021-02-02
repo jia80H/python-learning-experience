@@ -1,12 +1,9 @@
-def demo(a, b):
-    try:
-        x = a / b
-    except ZeroDivisionError:
-        return '除数不能为零'
-    else:
-        return x
-    finally:
-        return 'good'
+def g1():
+    for i in range(3):
+        yield i
+    for j in 'abc':
+        yield j
 
-print(demo(1,0)) # g	``
-print(demo(1,2)) 
+g = g1()
+for gg in g:
+    print(gg)
