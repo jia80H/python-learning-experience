@@ -67,5 +67,4 @@ def start():
             print('无效操作')
 
 
-if __name__ == '__main__':
-    start()
+start()

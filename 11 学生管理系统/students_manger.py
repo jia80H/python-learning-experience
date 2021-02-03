@@ -50,10 +50,10 @@ def show_students():
 
     if choice == '1':
         for student in students:
-            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}').fomat(
-                **students)
+            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}'.format(
+                **student))
 
-    elif choice == 2:
+    elif choice == '2':
         s_name = input('输入姓名:')
 
         # same_name = []
@@ -65,16 +65,16 @@ def show_students():
         if not same_name:
             print('不存在')
         for student in same_name:
-            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}').fomat(
-                **students)
-    elif choice == 3:
+            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}'.format(
+                **student))
+    elif choice == '3':
         s_id = input('输入姓名:')
         same_id = filter(lambda s: s['id'] == s_id, students)
         if not same_id:
             print('不存在')
         for student in same_id:
-            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}').fomat(
-                **students)
+            print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}'.format(
+                **student))
     else:
         pass
 
@@ -95,15 +95,15 @@ def show_students_jianhua():
     if choice == '1':
         pass
 
-    elif choice == 2:
+    elif choice == '2':
         value = input('输入姓名:')
         key = 'name'
         # 或者
         # s_name = input('输入姓名:')
         # students = filter(lambda s: s['name'] == s_name, students)
         # students只保留指定学生
-    elif choice == 3:
-        value = input('输入姓名:')
+    elif choice == '3':
+        value = input('输入学号:')
         key = 'id'
         # 或者
         # s_id = input('输入姓名:')
@@ -121,8 +121,8 @@ def show_students_jianhua():
         return
 
     for student in students:
-        print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}').fomat(
-            **students)
+        print('学号:{id},\t 姓名:{name},\t 性别:{gender},\t 年龄:{age},\t 电话:{tel}'.format(
+            **student))
 
 
 def modify_student():
@@ -130,7 +130,41 @@ def modify_student():
 
 
 def delte_student():
-    pass
+    y = file_manager.read_json(
+        '11 学生管理系统/files/'+username+'.json', {})
+    students = y.get('all_students', [])
+    key = value = ''
+
+    if not students:
+        print('没有学生')
+        return
+
+    num = input('1. 按照姓名\n2. 按照学号\n 其他:返回')
+    if num == '1':
+        key = 'name'
+        value = input('输入姓名')
+
+    elif num == '2':
+        key = 'id'
+        value = input('请输入ID')
+    else:
+        return
+
+    del_students = list(filter(lambda s: s.get(key, '') == value, students))
+    if not del_students:
+        print('没有学生')
+        return
+    for i, student in enumerate(del_students):
+        print('{x} 学号:{id}, 姓名:{name}, 性别:{gender}, 年龄:{age}, 电话:{tel}'.format(
+            x=i, **student))
+
+    n = input('请输入要删除的序号(0~{}), 其他返回/n'.format(i))
+    if not n.isdigit() or not 0 <= int(n) <= i:
+        print('输入内容不合法')
+        return
+    students.remove(del_students[int(n)])
+    y['all_stdents'] = students
+    file_manager.write_json('11 学生管理系统/files/'+username+'.json', y)
 
 
 def show_manager():
@@ -146,12 +180,19 @@ def show_manager():
             add_student()
         elif operator == '2':
             print('查看')
+            show_students_jianhua()
         elif operator == '3':
             print('修改')
         elif operator == '4':
             print('删除')
+            delte_student()
         elif operator == '5':
             print('返回')
             break
         else:
             print('输入有误')
+
+
+if __name__ == '__main__':
+    username = 'jia'
+    show_manager()
