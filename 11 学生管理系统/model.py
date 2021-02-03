@@ -8,7 +8,8 @@ class Teachers(object):
 
 
 class Students(object):
-    def __init__(self, name, age, gender, tel):
+    def __init__(self, id, name, age, gender, tel):
+        self.id = id
         self.name = name
         self.age = age
         self.gender = gender
