@@ -1,9 +1,10 @@
 """ 装饰器传递参数 """
+
+
 def can_play(clock):
     print('最外层函数被调用了, clock = {}'.format(clock))
 
-
-    def handle_action(fn):  # 
+    def handle_action(fn):  #
         def do_action(name, game):
             if clock < 21:
                 fn(name, game)
@@ -11,7 +12,7 @@ def can_play(clock):
                 print('太晚了,不能玩游戏')
 
         return do_action
-    
+
     return handle_action
 
 
@@ -53,7 +54,6 @@ def check_permisson(x, y):
 @check_permisson(user_permission, read_permission)
 def read():
     print('我正在读取内容')
-
 
 
 @check_permisson(user_permission, write_permission)

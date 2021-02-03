@@ -65,15 +65,16 @@ else:
 
 """ finally关键字的使用 """
 # try ....:
-    # somerthing
+# somerthing
 # finnally:
-    # another things
+# another things
 # finally最终一定会执行的代码
 
 try:
     print(1/0)
 finally:
     print('nihao')
+
 
 def demo(a, b):
     try:
@@ -85,8 +86,8 @@ def demo(a, b):
     finally:
         return 'good'
 
-print(demo(1,0))  # good
-print(demo(1,2))  # good
+
+print(demo(1, 0))  # good
+print(demo(1, 2))  # good
 # 如果函数里有finally,
 # finally里的返回值会覆盖前面的返回值
-

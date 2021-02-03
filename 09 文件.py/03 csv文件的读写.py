@@ -16,7 +16,6 @@ w.writerows(
 file.close
 
 """ 读取 """
-import csv
 file = open('demo.csv', 'r', encoding='utf8', newline='')
 r = csv.reader(file)
 for date in r:

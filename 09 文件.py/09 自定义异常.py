@@ -15,10 +15,10 @@ class LengthError(Exception):
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    
+
     def __str__(self):
         return '长度必须在{}至{}之间'.format(self.x, self.y)
-        
+
 
 password = input('输入密码')
 x = 6

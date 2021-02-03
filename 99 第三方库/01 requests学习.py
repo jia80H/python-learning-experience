@@ -1,3 +1,6 @@
+import json
+from io import BytesIO
+from PIL import Image
 import requests
 # 参见  https://cn.python-requests.org/zh_CN/latest/
 """ 准备 """
@@ -7,21 +10,21 @@ import requests
 # get
 # 获取 Github 的公共时间线
 r = requests.get('https://api.github.com/events')
-print(r) # <Response [200]>
+print(r)  # <Response [200]>
 # post
 # Requests 简便的 API 意味着所有 HTTP 请求类型都是显而易见的。
-r = requests.post('http://httpbin.org/post', data = {'key':'value'})
+r = requests.post('http://httpbin.org/post', data={'key': 'value'})
 
 # 其他HTTP请求类型
 # put/delete/head/options
-r = requests.put('http://httpbin.org/put', data = {'key':'value'})
+r = requests.put('http://httpbin.org/put', data={'key': 'value'})
 r = requests.delete('http://httpbin.org/delete')
 r = requests.head('http://httpbin.org/get')
 r = requests.options('http://httpbin.org/get')
 
 """ 传递url参数 """
 # 使用 params 关键字参数，以一个字符串字典来提供这些参数。
-# 传递 key1=value1 和 key2=value2 到 httpbin.org/get 
+# 传递 key1=value1 和 key2=value2 到 httpbin.org/get
 payload = {'key1': 'value1', 'key2': 'value2'}
 r = requests.get("http://httpbin.org/get", params=payload)
 print(r.url)  # http://httpbin.org/get?key1=value1&key2=value2
@@ -52,8 +55,6 @@ print(r.content)
 
 # Requests 会自动解码 gzip 和 deflate 传输编码的响应数据
 # 以请求返回的二进制数据创建一张图片，
-from PIL import Image
-from io import BytesIO
 
 i = Image.open(BytesIO(r.content))
 
@@ -66,12 +67,12 @@ print(r.json())
 # 成功调用 r.json() 并**不**意味着响应的成功。
 # 有的服务器会在失败的响应中包含一个 JSON 对象（比如 HTTP 500 的错误细节）。
 # 这种 JSON 会被解码返回。
-# 要检查请求是否成功，使用 r.raise_for_status() 
+# 要检查请求是否成功，使用 r.raise_for_status()
 # 或者检查 r.status_code 是否和你的期望相同。
 
 """ 原始响应内容 """
 # 在罕见的情况下，你可能想获取来自服务器的原始套接字响应，
-# 那么你可以访问 r.raw。 
+# 那么你可以访问 r.raw。
 # 如果你确实想这么干，那请你确保在初始请求中设置了 stream=True。具体你可以这么做：
 
 r = requests.get('https://api.github.com/events', stream=True)
@@ -83,10 +84,10 @@ with open(filename, 'wb') as fd:
     for chunk in r.iter_content(chunk_size):
         fd.write(chunk)
 
-# 使用 Response.iter_content 
+# 使用 Response.iter_content
 # 将会处理大量你直接使用 Response.raw 不得不处理的。
 # 当流下载时，上面是优先推荐的获取内容方式。
-# Note that *chunk_size* can be freely adjusted to a number 
+# Note that *chunk_size* can be freely adjusted to a number
 # that may better fit your use cases
 
 """ 定制请求头 """
@@ -98,7 +99,7 @@ headers = {'user-agent': 'my-app/0.0.1'}
 r = requests.get(url, headers=headers)
 # 注意: 定制 header 的优先级低于某些特定的信息源，
 
-# 注意: 所有的 header 值必须是 string、bytestring 
+# 注意: 所有的 header 值必须是 string、bytestring
 # 或者 unicode。尽管传递 unicode header 也是允许的，但不建议这样做。
 """ 更加复杂的 POST 请求 """
 # 要发送一些编码为表单形式的数据——非常像一个 HTML 表单。
@@ -121,7 +122,6 @@ print(r.text)
 # 那么数据会被直接发布出去。
 # 例如，Github API v3 接受编码为 JSON 的 POST/PATCH 数据：
 
-import json
 
 url = 'https://api.github.com/some/endpoint'
 payload = {'some': 'data'}
@@ -141,4 +141,3 @@ r = requests.get('http://httpbin.org/get')
 print(r.status_code)
 # Requests附带了一个内置的状态码查询对象
 r.status_code == requests.codes.ok
-

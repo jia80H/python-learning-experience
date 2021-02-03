@@ -1,5 +1,5 @@
 import os
-#print输出语句
+# print输出语句
 print('hello world!')
 
 ''' print的使用
@@ -15,7 +15,7 @@ def print(
  -> None: ...
 '''
 
-print('hello','good','yes')
+print('hello', 'good', 'yes')
 
 '''
 >>> print('hello','good','yes')
@@ -24,21 +24,21 @@ hello good yes
 '''
 
 
-print('hello','good','yes','hi',sep = '+')
+print('hello', 'good', 'yes', 'hi', sep='+')
 
 '''
 >>> print('hello','good','yes','hi',sep = '+')
 hello+good+yes+hi
 >>>
 '''
-print('hello','good','yes')
-print('hello','good','yes')
+print('hello', 'good', 'yes')
+print('hello', 'good', 'yes')
 '''
 hello good yes
 hello good yes
 '''
-print('hello','good','yes','hi',sep = '+',end = "\t")
-print('hello','good','yes','hi',sep = '+',end = "&&*&*%^&$%^")
+print('hello', 'good', 'yes', 'hi', sep='+', end="\t")
+print('hello', 'good', 'yes', 'hi', sep='+', end="&&*&*%^&$%^")
 
 '''
 hello+good+yes+hi       hello+good+yes+hi&&*&*%^&$%^

@@ -1,4 +1,5 @@
 """ 基础版 V1.0 """
+import os
 file_name = input('请输入一个文件路径: ')
 # 打开旧文件
 old_file = open(file_name, encoding='utf8')
@@ -17,16 +18,15 @@ old_file.close()
 # 根据被复制的文件名生成备份
 # 兼容复制非文本
 
-import os
 file_name = input('请输入一个文件路径: ')
 
-if os.path.isfile(file_name): # 判断文件是否存在
+if os.path.isfile(file_name):  # 判断文件是否存在
     # 打开旧文件
     old_file = open(file_name, 'rb')  # 以二进制打开
-    
+
     names = file_name.rpartition('.')
-    new_file_name = names[0] + '.bak.' +names[2]
-    # 或者使用os.splitext() 
+    new_file_name = names[0] + '.bak.' + names[2]
+    # 或者使用os.splitext()
     # names = os.path.splitext(file_name)
     # new_file_name = names[0] + '.bak' +names[2]
 
@@ -43,16 +43,15 @@ else:
 
 """ 优化版 V3.0 """
 # 优化大文件复制
-import os
 file_name = input('请输入一个文件路径: ')
 
-if os.path.isfile(file_name): # 判断文件是否存在
+if os.path.isfile(file_name):  # 判断文件是否存在
     # 打开旧文件
     old_file = open(file_name, 'rb')  # 以二进制打开
-    
+
     names = file_name.rpartition('.')
-    new_file_name = names[0] + '.bak.' +names[2]
-    # 或者使用os.splitext() 
+    new_file_name = names[0] + '.bak.' + names[2]
+    # 或者使用os.splitext()
     # names = os.path.splitext(file_name)
     # new_file_name = names[0] + '.bak' +names[2]
 

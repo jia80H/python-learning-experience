@@ -4,6 +4,7 @@ def g1():
     for j in 'abc':
         yield j
 
+
 g = g1()
 for gg in g:
     print(gg)

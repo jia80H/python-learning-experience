@@ -3,6 +3,7 @@ import model
 import Tools
 import students_manger
 
+
 def register():
     # 读取文件, 查看文件是否有数据. 如果文件不存在默认是一个字典
     teachers = file_manager.read_json('11 学生管理系统/files/users.json', {})
@@ -53,6 +54,7 @@ def start():
         operator = input(content + '\n')
         if operator == '1':
             print('登录')
+            login()
         elif operator == '2':
             print('注册')
             register()

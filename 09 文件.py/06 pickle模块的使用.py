@@ -4,10 +4,10 @@
 import pickle
 
 # 序列化:
-# 1. dumps: 将python数据转成二进制  
+# 1. dumps: 将python数据转成二进制
 # 2. dump: 将python数据转成二进制,同时保存到指定文件
 
-# 反序列化: 
+# 反序列化:
 # 1. loads: 将二进制加载成python数据
 # 2. load读取文件,并将读取的内容加载成二进制
 

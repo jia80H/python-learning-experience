@@ -10,17 +10,17 @@
 # 00练习.py 写入时, 使用的是utf8 编码格式
 # 在windows操作系统中,默认使用gbk编码格式打开文件
 # 解决方案: 写入和读取时使用相同的编码格式
-file = open('00练习.py',encoding='utf8')
+import os
+file = open('00练习.py', encoding='utf8')
 print(file.read())
 
 file.close()  # 操作完成以后要关闭文件
 
 """ 路径 """
 
-# 绝对路径: 
+# 绝对路径:
 # 从电脑盘符开始的路径
-import os
-print(os.sep) 
+print(os.sep)
 # windows系统里,文件之间使用\分隔
 # 在python字符串里, \ 表示转义字符
 
@@ -30,18 +30,18 @@ print(os.sep)
 # 方法2 前面加上r
 # file = open(r'E:\git仓库\python-learning-experience\00练习.py',encoding='utf8')
 # 方法3 换成/ (推荐)
-file = open(r'E:/git仓库/python-learning-experience/00练习.py',encoding='utf8')
+file = open(r'E:/git仓库/python-learning-experience/00练习.py', encoding='utf8')
 print(file.read())
 file.close()
 
 ####################
 
-# 相对路径: 
+# 相对路径:
 # 当前文件夹开始的路径
 # ../ 表示回到上一级
 # ./  表示在当前文件夹,可以省略不写
 # /   不能随便用
-file = open('00练习.py',encoding='utf8')
+file = open('00练习.py', encoding='utf8')
 print(file.read())
 file.close()
 
@@ -49,9 +49,9 @@ file.close()
 # mode 指的是文件的打开方式
 
 # r: 只读模式
-# 打开文件以后,只能读取,不能写入. 
+# 打开文件以后,只能读取,不能写入.
 # 如果文件不存在会报错
-file = open('00练习.py','r',encoding='utf8')
+file = open('00练习.py', 'r', encoding='utf8')
 print(file.read())
 # file.write('hello') # 不能执行,会报错
 # file = open('练习.py') # 文件不存在,会报错

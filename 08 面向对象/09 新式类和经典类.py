@@ -3,7 +3,9 @@ class Animal(object):
     pass
 
 # 没有指定Dog的父类,python3默认继承自object
-class Dog:  
+
+
+class Dog:
     pass
 
 # 新式类和经典类的概念

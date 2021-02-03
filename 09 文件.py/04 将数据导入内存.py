@@ -1,5 +1,6 @@
 # 将数据写入内存涉及到 StringIO 和 BytesIO 两个类
 """ StringIO """
+from io import BytesIO
 from io import StringIO
 
 s_io = StringIO()
@@ -23,7 +24,6 @@ print(s_io.getvalue())
 s_io.close()  # 记得关闭
 
 """ BytesIO """
-from io import BytesIO
 
 b_io = BytesIO()
 # b_io.write('你好')  # 报错,只能写二进制

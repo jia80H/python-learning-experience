@@ -12,10 +12,14 @@
 
 # 练习1:创建一个生成器，并且调用
 # 创建生成器
+import time
+
+
 def generator():
     print('xxx')
     yield
     print('zzz')
+
 
 # 接收返回值
 ret = generator()
@@ -33,6 +37,7 @@ def generator():
     print('xxx')
     yield 1  # 返回值
 
+
 g = generator()
 ret = next(g)  # xxx
 print(ret)  # 1
@@ -45,21 +50,24 @@ def generator():
     print('zzz')
     yield 2
 
+
 g = generator()
 ret1 = next(g)  # xxx
 ret2 = next(g)  # zzz
 print(ret1, ret2)  # 1,2
 # 练习4：创建生成器，生成200万桶康师傅方便面。
 # 一秒一桶
+
+
 def ksf():
 
     for i in range(1, 2*10**6):
         yield '正在生产第{}桶'.format(i)
 
+
 g = ksf()
 print(next(g))
 
-import time
 
 for i in g:
     print(i)
@@ -74,6 +82,8 @@ for i in g:
 # (2).最后一个yield不能接受外部的值
 
 # 练习1：使用send()方法给yield传递参数
+
+
 def generator():
     print('=====')
     content = yield 1
@@ -89,6 +99,8 @@ s = g.send(88)  # 传给上一个yield,yield再传给content
 print(s)
 
 # 练习2：计算移动平均值
+
+
 def avg():
     sum = 1  # 数字个数
     avg = 0  # 平均数
@@ -98,6 +110,7 @@ def avg():
         total += ret
         avg = total/sum
         sum += 1
+
 
 g = avg()
 next(g)
@@ -109,17 +122,22 @@ print(g.send(30))  # 20.0
 # yield from 循环遍历容器类型
 
 # 练习1：使用for循环取出g1生成器中所有的值。
+
+
 def g1():
     for i in range(3):
         yield i
     for j in 'abc':
         yield j
 
+
 g = g1()
 for gg in g:
     print(gg)
 
 # 练习2：使用 yield from 遍历出可变数据类型中的数据。
+
+
 def g1():
     yield from range(3)
 
@@ -143,9 +161,12 @@ for i in g:
     print(i)
 
 # 练习2：利用list转换数数
+
+
 def demo():
     for i in range(4):
         yield i
+
 
 g = demo()
 print(list(g))  # 列表转换自动调用__next__方法 [0, 1, 2, 3]

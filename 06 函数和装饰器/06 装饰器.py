@@ -1,4 +1,6 @@
 """ 装饰器的基本使用 """
+
+
 def cal_time(fn):
 
     print('我是外部函数，我被调用了')
@@ -6,10 +8,10 @@ def cal_time(fn):
 
     def inner():
         import time
-        start = time.time() 
+        start = time.time()
         fn()
-        end = time.time() 
-        print('耗时',(end - start),'s')
+        end = time.time()
+        print('耗时', (end - start), 's')
 
     return inner
 
@@ -19,17 +21,20 @@ def cal_time(fn):
 # 第二件事是把被装饰的函数传给fn
 def cal():
     x = 0
-    for i in range(1,10000000):
+    for i in range(1, 10000000):
         x += i
     print(x)
 
+
 # 第三件事：当再次调用cal函数时，这是的cal函数已经不是上面的cal
-print('装饰后的cal={}'.format(cal)) 
-#装饰后的cal=<function cal_time.<locals>.inner at 0x00000223FD0369D0>
+print('装饰后的cal={}'.format(cal))
+# 装饰后的cal=<function cal_time.<locals>.inner at 0x00000223FD0369D0>
 cal()
 
 """ 装饰器详解 """
 # 看懂这个
+
+
 def cal_time(fn):
 
     print('我是外部函数，我被调用了')
@@ -37,12 +42,11 @@ def cal_time(fn):
 
     def inner(s):
         import time
-        start = time.time() 
-        k= fn(s)
-        end = time.time() 
-        print('耗时',(end - start),'s')
+        start = time.time()
+        k = fn(s)
+        end = time.time()
+        print('耗时', (end - start), 's')
         return k
-
 
     return inner
 
@@ -50,9 +54,11 @@ def cal_time(fn):
 @cal_time
 def cal(n):
     x = 0
-    for i in range(1,n):
+    for i in range(1, n):
         x += i
-    return x # 和之前不一样
+    return x  # 和之前不一样
+
+
 print(cal(1000000))
 
 """ 装饰器的使用 """
@@ -64,6 +70,8 @@ print(cal(1000000))
 # 新需求，需要防沉迷
 
 # 先把装饰器结构搭建出来
+
+
 def can_play(fn):
     def inner():
         pass
@@ -71,24 +79,28 @@ def can_play(fn):
     return inner
 
 # 原来的需求
-def play_game(name,game):
-    print('{}正在玩儿{}'.format(name,game))
+
+
+def play_game(name, game):
+    print('{}正在玩儿{}'.format(name, game))
 
 # 成品
+
+
 def can_play(fn):
-    def inner(x,y,*args,**kwargs):
+    def inner(x, y, *args, **kwargs):
         print(args)
         if args[0] >= 18:
-            fn(x,y)
+            fn(x, y)
         else:
-           print('未成年')
+            print('未成年')
 
     return inner
 
 
 @can_play
-def play_game(name,game):
+def play_game(name, game):
     print('{}正在玩儿{}'.format(name, game))
 
 
-play_game('Mlfoy','TFT',22)
+play_game('Mlfoy', 'TFT', 22)

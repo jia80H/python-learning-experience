@@ -2,6 +2,8 @@
 # 达到不同子类调用相同父类方法,得到不同结果
 # 提高代码的灵活度
 """ 不使用多态 """
+
+
 class pDog(object):
     def attack_enemy(self):
         print('警犬正在攻击坏人')
@@ -18,7 +20,7 @@ class Ddog(object):
 
 
 class Person(object):
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
 
     def work_with_pd(self):
@@ -69,13 +71,14 @@ class Ddog(Dog):
 
 
 class Person(object):
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
         self.dog = None
 
     def work_with_dog(self):
-        if self.dog is not None and isinstance(self.dog,Dog):
+        if self.dog is not None and isinstance(self.dog, Dog):
             self.dog.work()
+
 
 p = Person('张三')
 

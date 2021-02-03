@@ -37,7 +37,7 @@ p = json.loads(y)
 print(p, type(p))
 
 file1 = open('00练习.py', 'r', encoding='utf8')
-m = json.load(file1) # 需要注释掉上边三个写入中两个或者文件中换行
+m = json.load(file1)  # 需要注释掉上边三个写入中两个或者文件中换行
 print(y)
 file1.close()
 

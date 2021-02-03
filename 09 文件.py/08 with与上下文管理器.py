@@ -10,7 +10,7 @@ else:
         file.close()
 
 # 使用with
-try :
+try:
     with open('xxxx.txt', 'r') as file:
         file.read()  # 不需要手动的关闭文件
         # with关键字会帮助我们关闭文件
@@ -36,7 +36,6 @@ class Demo():
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         print('method "__exit__" has been excuted ')
-        
 
 
 def creat_obj():
@@ -49,4 +48,3 @@ with creat_obj() as d:  # as 变量名
     # 而是创建的对象x调用__enter__之后的返回结果
     # d = creat_obj().__enter__()
     print(d)
-
