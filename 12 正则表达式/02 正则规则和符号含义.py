@@ -26,4 +26,56 @@ print(re.search(r'\t', 'hello\tworld'))  # tab
 # \S 表示非空白字符
 print(re.search(r'\S', ' \t\n  x'))
 
-""" 特殊字符 """
+""" 标点符号的特殊含义 """
+
+# () 用来表示分组
+# . 表示匹配除了换行以外的任意字符
+
+# [] 用来表示可选项范围(一次) [x-y]从x到y区间,保护x,y
+m = re.search(r'f[1-6]m', 'sff3mse')
+print(m)  # <re.Match object; span=(2, 5), match='f3m'>
+m = re.search(r'f[u-w]m', 'sffvmse')
+print(m)  # 字母也可
+# [0-5a-dx]  0到5 或者 a到d 或者 x
+
+# | 用来表示 或者
+# | 可以出现多个值 [] 只能单个值
+re.search(r'f(x|p)m', 'axfpms')
+
+# {n} 用来限定{n}前面元素出现n次数
+# {n,} 表示前面元素出现n次及以上
+# {,n} 表示出现n次及以下
+# {m,n} m到n次
+print(re.search(r'go{2}d', 'good'))
+
+# * 表示前面元素出现任意次数(0次及以上) 等价于 {0,}
+
+# + 前面元素出现一次及以上 {1,}
+
+# ? 两种用法
+# 1. 规定前面元素最多出现一次 {,1}
+# 2. 将贪婪模式转换我非贪婪模式
+print(re.search(r'go?d', 'gd'))
+
+# ^ 以指定内容开头
+# $ 以指定内容结尾
+print(re.search(r'^a.*i$', 'asdfghi'))
+print(re.search(r'^a.*i$', 'daxcv\nasdfghi\n', re.M))
+
+# ^ 在[]里面 还表示取反
+""" <字母>的特殊含义 """
+# \n 换行    \t tab    \s 空白字符    \S 非空白字符
+# \d 表示数字 及[0-9]
+# \D 表示非数字 及[^0-9]
+# \w 数字 字母 下划线 汉字等(非标点)
+# \W \w取反 (标点)
+
+""" 练习 """
+# 判断是否是数字
+num = input('数字')
+if re.fullmatch(r'\d+(\.?\d+)?', num):
+    print('是数字')
+else:
+    print('不是数字')
+
+#
