@@ -52,6 +52,18 @@ print(a4)  # ['x832', 'x12']
 # 完整匹配, 字符串需要完全满足正则规则才会有结果, 否则就是None
 a5 = re.fullmatch(r'hello world', 'hello world')
 print(a5)
+""" 正则替换 """
+
+# 替换：sub
+# 1. 第一个参数是正则表达式
+# 2. 第二个参数是新的字符或函数
+# 3. 第三个参数是被替换的原字符串
+a = re.sub(r'\d', 'x', 'afcsdfm234dffdf43gth345')
+print(a)
+
+# 把字符串里的数字扩大至两倍
+a = re.sub(r'\d+', lambda x: str((int(x.group(0)))*2), 'afcsfm23df43g35')
+print(a)
 
 """ re.Match类的使用 """
 m = re.search(r'm', 'afwmefwa')

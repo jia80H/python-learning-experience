@@ -71,11 +71,21 @@ print(re.search(r'^a.*i$', 'daxcv\nasdfghi\n', re.M))
 # \W \w取反 (标点)
 
 """ 练习 """
-# 判断是否是数字
+# 匹配数字
 num = input('数字')
 if re.fullmatch(r'\d+(\.?\d+)?', num):
     print('是数字')
 else:
     print('不是数字')
 
-#
+""" 贪婪与非贪婪模式 """
+
+# 在python的正则表达式里, 默认是贪婪模式
+# 即尽可能多的匹配
+m = re.search(r'm.*a', 'sdmrsdfsadssa')
+print(m)  # <re.Match object; span=(2, 13), match='mrsdfsadssa'>
+
+# 在贪婪模式后边加? 可以转换位非贪婪模式
+# 即尽可能少的匹配
+n = re.search(r'm.*?a', 'sdmrsdfsadssa')
+print(n)  # <re.Match object; span=(2, 9), match='mrsdfsa'>
