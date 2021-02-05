@@ -7,7 +7,7 @@ d = """hhhh"""
 # 如果字符串中有双引号，外边就可以使用单引号（同理其他类似）
 print('xiaoming said:"i love you"')
 
-'''转义字符 \ '''
+'''转义字符 '''
 x = 'i\'m xiao ming'
 # \' 显示单引号
 

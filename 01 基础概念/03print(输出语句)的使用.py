@@ -4,7 +4,7 @@ print('hello world!')
 
 ''' print的使用
 def print(
-         *values: object, 
+         *values: object,
          sep: Optional[Text] = ..., #默认空格为分隔符
          end: Optional[Text] = ...,
              #输出完print语句后，默认输出的字符为'/n'（换行）

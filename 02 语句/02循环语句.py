@@ -12,7 +12,7 @@ x = 0
 while x < 10:
     print(x)
     x = x+1
-    #x++ py中不支持自增自减运算符
+    # x++ py中不支持自增自减运算符
 
 '''for...in'''
 # for ele in itrable

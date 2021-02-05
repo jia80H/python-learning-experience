@@ -19,7 +19,7 @@ print(10 % 3)  # 1 取余
 
 # 字符串运算
 
-#+ 字符串连接
+# + 字符串连接
 # * 字符串重复
 # [] 通过索引获取字符串中字符
 # [:] 截取字符串中部分字符
@@ -30,7 +30,7 @@ print('hello'+'world')  # helloworld
 
 print('hello' * 2)  # hellohello
 
-s = python
+s = 'python'
 print('thon' in s)  # True
 print('thon' not in s)  # False
 print(s[0])  # 返回s中索引（序号，从零开始）为0的字符 p
@@ -112,7 +112,7 @@ print(o or [] or ())  # ()
 a = 23  # 0001 0111 23
 b = 15  # 0000 1111 15
 print(a & b)  # 0000 0111 7
-#按位或| 只要有一个为1则为1
+# 按位或| 只要有一个为1则为1
 print(a | b)  # 0001 1111 31
 # 按位异或^ 相同为0，不同为1
 print(a ^ b)  # 0001 1000 24

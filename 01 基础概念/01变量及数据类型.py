@@ -1,13 +1,13 @@
-import os 
-#暂停防止闪退
-''' 
+import os
+# 暂停防止闪退
+'''
 变量
     数字类：有有符号整数（int)，浮点数（fload)，复数（complex)
-    布尔函数 True False   字符串 String   
+    布尔函数 True False   字符串 String
     列表 List             元组 Tuple
     字典 Dictionary       集合 set
 '''
-a = 12 #int
+a = 12  # int
 print(a)
 print(type(a))
 
@@ -19,7 +19,7 @@ print(type(a))
 <class 'int'>
 '''
 
-a = 1.32222 #fload
+a = 1.32222  # fload
 print(a)
 print(type(a))
 
@@ -32,7 +32,7 @@ print(type(a))
 >>>
 '''
 
-a = (-4)**0.5 #complex
+a = (-4)**0.5  # complex
 print(a)
 print(type(a))
 
@@ -42,7 +42,7 @@ print(type(a))
 <class 'complex'>
 '''
 
-a = ('hello world!') #string
+a = ('hello world!')  # string
 print(a)
 print(type(a))
 
@@ -54,15 +54,15 @@ hello world!
 >>>
 '''
 
-a = True #bool
+a = True  # bool
 print(a)
 print(type(a))
 
-a = False #bool
+a = False  # bool
 print(a)
 print(type(a))
 
-print(3>4) #bool
+print(3 > 4)  # bool
 
 '''
 >>> a = True #bool
@@ -81,7 +81,7 @@ False
 False
 '''
 
-names = ['jjh','cyx','yyl','ztt'] #list
+names = ['jjh', 'cyx', 'yyl', 'ztt']  # list
 print(names)
 print(type(names))
 
@@ -92,7 +92,7 @@ print(type(names))
 <class 'list'>
 '''
 
-person = {'name':'jjh','afe':'18','gender':'men'} #字典
+person = {'name': 'jjh', 'afe': '18', 'gender': 'men'}  # 字典
 print(person)
 print(type(person))
 
@@ -105,7 +105,7 @@ print(type(person))
 >>>
 '''
 
-nums = (1,2,3,4) #元组
+nums = (1, 2, 3, 4)  # 元组
 print(nums)
 print(type(nums))
 
@@ -117,7 +117,7 @@ print(type(nums))
 >>>
 '''
 
-jihe = {1,2,1.2,'strdfvds','你好',True}
+jihe = {1, 2, 1.2, 'strdfvds', '你好', True}
 print(jihe)
 print(type(jihe))
 
@@ -128,4 +128,4 @@ print(type(jihe))
 <class 'set'>
 >>>
 '''
-os.system('pause') #暂停程序
+os.system('pause')  # 暂停程序
