@@ -1,7 +1,7 @@
 # python-learning-experience
 <p>我与python</p>
 <p>从2020/12/29</p>
-<p>到2021/02/04</p>
+<p>到2021/02/07</p>
 <p>学到进程</p>
 <p>python已经入门</p>
 <p>接下来就是进阶学习了</p>
@@ -16,4 +16,4 @@
 <p>I wanna every thing beautiful.</p>
 <p></p>
 <p>——mlfy_jia</p>
-<p>2021 02 04</ps>
+<p>2021 02 07</ps>
