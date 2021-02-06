@@ -1,10 +1,10 @@
 # python-learning-experience
 <p>我与python</p>
 <p>从2020/12/29</p>
-<p>到2021/02/07</p>
-<p>学到进程</p>
+<p>到2021/02/04</p>
+<p>学到正则表达式</p>
 <p>python已经入门</p>
-<p>完结撒花</p>
+<p>接下来就是进阶学习了</p>
 <p>😊😊😊😊😊</p>
 <p>我把对概念的理解和代码练习写到一个文件</p>
 <p>如果你能看到</p>
@@ -16,4 +16,4 @@
 <p>I wanna every thing beautiful.</p>
 <p></p>
 <p>——mlfy_jia</p>
-<p>2021 02 07</ps>
+<p>2021 02 04</ps>
