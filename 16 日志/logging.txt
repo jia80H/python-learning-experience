@@ -1,0 +1,5 @@
+2021-03-06 09:06:52,696 MainThread:DEBUG 这是一个 debug 级别的日志信息
+2021-03-06 09:06:52,697 MainThread:INFO 这是一个 info 级别的日志信息
+2021-03-06 09:06:52,697 MainThread:WARNING 这是一个 warning 级别的日志信息
+2021-03-06 09:06:52,697 MainThread:ERROR 这是一个 error 级别的日志信息
+2021-03-06 09:06:52,697 MainThread:CRITICAL 这是一个 critical 级别的日志信息
